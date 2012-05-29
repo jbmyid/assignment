@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   before_save :set_hash_password
 
   def set_hash_password
-      self.password = encrypt_string(self.password)
+      self.password = User.encrypt_string(self.password)
   end
 
   private
