@@ -1,11 +1,13 @@
 Process Questions
 1. Describe how Agile development is implemented on your last projects.
+Ans:
    We have first created project with respect to the initial specifications like signup user with username and password only then changed the username, email and password.
    And after development of initial sepcification new functionality are added such as
    Album creation, add pictures etc for user.
    Change User profile picture.
    Add admin functionality: can delete any user's post from site etc.
 2. What do you know about BDD in rails ? 
+Ans:
    BDD stands for Behaviour Driven Development.
    Before writing code, we have to specify how code will behave, what will be input and output for piece of code.
    After writing behavour code we can write actual code.
@@ -23,45 +25,65 @@ Testing
 User Registration
 
 1. Username should not include special characters
+
    Check if "dasda#422@" is entered for username the error appears for invalid username  
 2. Username should not include white spaces
+
    Check if "das dadsf" is entered for username the error appears for invalid username
 3. Username should not contain more than 50 characters
    Check if "sssssssssssssssssssssssssssssssssssssssssssssssssss" is entered for username the error appears for invalid username
 4. Username should not be blank
+
    Check if "" is entered for username the error appears for invalid username
 5. Username should be unique
+
    Check if existing username is entered for username the error appears for invalid username
 6. Password should not include white spaces
+
    Check if "das dadsf" is entered for password the error appears for invalid password
 7. Password should be of minimum 6 characters
+
    Check if "das" is entered for password the error appears for invalid password
 8. Password should be of maximum 32 characters
+
    Check if "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" is entered for password the error appears for invalid password
 9. User should be created and logged in if username and password are valid
+
    Check if "jalendra" is entered in username and "12345678" is entered in password field then user get created and get logged in and is on home page
 
 User Sign in
 
 1. Registered user should be logged in
+
    Check if registered correct username and correct password is entered, the user logged in and he is on home page
+
 2. Registered user with incorrect password should not logged in
+
    Check if registered correct username and password is incorrect entered, the user should not logged in and he is on home page
+
+
 
 Contact Creation
 
 1. Name should not contain more than 50 characters
+
    Check if "sssssssssssssssssssssssssssssssssssssssssssssssssss" is entered for Name the error appears for invalid Name
 2. Name should not be blank
+
    Check if "" is entered for Name the error appears for invalid Name
 3. Email should not be blank
+
    Check if "" is entered for Email the error appears for invalid Email
 4. Email should not take invalid email format
+
    Check if "adada" is entered for Email the error appears for invalid Email
 5. Short info should not contain more than 500 characters
+
    Check if "sssssssssssssssssssssssssssssssssssssssssssssssssss" is entered for Short info the error appears for invalid Short info
 6. Short info should not be blank
+
    Check if "" is entered for Short info the error appears for invalid Short info
 7. Contact should be created if all fields are valid
+
    Check if "ABC" is entered in name, "abcs@gmail.com" is enterd in email, "hello" is entered in shourt info fields the contact should get created and displayed in contact list.
  

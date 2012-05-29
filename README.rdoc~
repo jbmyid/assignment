@@ -1,11 +1,13 @@
 Process Questions
 1. Describe how Agile development is implemented on your last projects.
+Ans:
    We have first created project with respect to the initial specifications like signup user with username and password only then changed the username, email and password.
    And after development of initial sepcification new functionality are added such as
    Album creation, add pictures etc for user.
    Change User profile picture.
    Add admin functionality: can delete any user's post from site etc.
 2. What do you know about BDD in rails ? 
+Ans:
    BDD stands for Behaviour Driven Development.
    Before writing code, we have to specify how code will behave, what will be input and output for piece of code.
    After writing behavour code we can write actual code.
