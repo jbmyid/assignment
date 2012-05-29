@@ -1,0 +1,11 @@
+class CreateContacts < ActiveRecord::Migration
+  def change
+    create_table :contacts do |t|
+      t.string :name, :limit=>50
+      t.string :email
+      t.text :short_info, :limit=>500
+      t.integet :user_id
+      t.timestamps
+    end
+  end
+end

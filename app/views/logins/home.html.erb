@@ -1,0 +1,81 @@
+<% if !current_user%>
+<a href="javascript:void(0);" class="action_links register_link">Register</a> 
+<a href="javascript:void(0);" class="action_links sign_in_link">Sign In</a>
+
+
+<div class="popup_block" id="register_div" style="display:none;">
+<%= form_for @user, :url=>{:controller=>"logins",:action=>"register"},:html=>{:onsubmit=>"return validate_register_form($(this));"} do |f|%>
+<table>
+	<tr>
+	  <td><span>Username: </span></td>
+	  <td>
+		<%=f.text_field :username, :class=>"user_username" %>
+	 	<span class='errors user_name_error'><%= @user.errors.blank? ? "" : @user.errors[:username][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td><span>Password: </span></td>
+	  <td>
+		<%=f.password_field :password, :class=>"user_password", :value=>"" %>
+		<span class='errors user_password_error'><%= @user.errors.blank? ? "" : @user.errors[:password][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td></td>
+	  <td ><%= f.submit "Register" %></td>	
+	</tr>
+</table>
+  
+<% end %>
+</div>
+
+<div class="popup_block" id="login_div" style="display:none;">
+<%= form_for @log_user, :url=>{:controller=>"logins",:action=>"login"},:html=>{:onsubmit=>"return validate_register_form($(this));"} do |f|%>
+<table>
+	<tr>
+	  <td><span>Username: </span></td>
+	  <td>
+		<%=f.text_field :username, :class=>"user_username" %>
+		<span class='errors user_name_error'><%= flash[:login_error] if flash[:login_error]%></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td><span>Password: </span></td>
+	  <td>
+		<%=f.password_field :password, :class=>"user_password", :value=>"" %>
+		<span class='errors user_password_error'></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td></td>
+	  <td ><%= f.submit "Register" %></td>	
+	</tr>
+</table>
+  
+<% end %>
+</div>
+
+<script type="text/javascript">
+$(function() {
+		$(".register_link").click(function(){
+			show_popup("register_div","Register");
+		});
+		$(".sign_in_link").click(function(){
+			show_popup("login_div","Sign In");
+		});
+		
+	});
+<% if !@user.errors.blank? %>
+	show_popup("register_div","Register");
+<% end %>
+
+<% if flash[:login_error] %>
+	show_popup("login_div","Sign In");
+<% end %>
+</script>
+
+<% else %>
+	<%= link_to "Contacts" ,{:controller=>:contacts, :action=>:index}, :class=>"action_links"%>
+<% end %>
+
+

@@ -1,0 +1,56 @@
+<a href="javascript:void(0);" class="add_contact action_links">Add Contact</a>
+
+<table class="contact_table">
+<tr>
+	<th width='40%'>Name</th>
+	<th width='40%'>Email</th>
+	<th width='20%'></th>
+</tr>
+<% @contacts.each do |c| %>
+<tr>
+	<td><%= c.name%></td>
+	<td><%= c.email %></td>
+	<td><a class="edit_contact_link" id="<%= c.id %>" href="javascript:void(0);">Edit</a></td>
+</tr>
+<% end if @contacts %>
+</table>
+<div class="popup_block" id="add_contact_div" style="display:none;">
+<%= form_for @contact, :url=>{:controller=>"contacts",:action=>"create"},:html=>{:onsubmit=>"return validate_contact_form($(this));"} do |f|%>
+<table>
+	<tr>
+	  <td><span>Name: </span></td>
+	  <td>
+		<%=f.text_field :name, :class=>"contact_name" %>
+	 	<span class='errors name_error'><%= @contact.errors.blank? ? "" : @contact.errors[:name][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td><span>Email: </span></td>
+	  <td>
+		<%=f.text_field :email, :class=>"contact_email" %>
+		<span class='errors email_error'><%= @contact.errors.blank? ? "" : @contact.errors[:email][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td><span>Short Info: </span></td>
+	  <td>
+		<%=f.text_area :short_info, :class=>"contact_short_info" ,:rows=>"10",:cols=>"50"%>
+		<span class='errors short_info_error'><%= @contact.errors.blank? ? "" : @contact.errors[:short_info][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td></td>
+	  <td ><%= f.submit "Add" %></td>	
+	</tr>
+</table>
+  
+<% end %>
+</div>
+<script type='text/javascript'>
+$(function() {
+		$(".add_contact").click(function(){
+			show_popup("add_contact_div","Add Contact");
+		});
+		
+	});
+</script>

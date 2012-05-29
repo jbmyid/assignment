@@ -1,0 +1,88 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+*/
+
+.popup_block
+{
+  display:block;
+  border: 1px solid grey;
+  background: #FFFFFF;
+  width: 400px;
+  padding: 10px 20px;
+}
+
+input[type='text'],input[type='password']
+{
+  width: 200px;
+  height: 30px;
+  color: #878682;
+  font-size: 13px;
+  padding: 0 10px;
+}
+input[type='text']:focus,input[type='password']:focus,textarea:focus
+{
+  color: #424241;
+  background: #F5FFC4;
+  font-weight: bold;
+  
+}
+.errors
+{
+  color:red;
+  font-size: 12px;
+  float:left;
+}
+
+.action_links
+{
+  border-radius: 10px 10px 10px 10px;
+    color: #F70C6B;
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding: 24px 20px;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+}
+.action_links:hover
+{
+  background: #F5D3E0;
+}
+
+textarea
+{
+  width:220px;
+  height: 80px;
+}
+.contact_table
+{
+  display:block;
+  float:left;
+  width: 400px;
+  clear: both;
+  border: none;
+  width: 400px;
+}
+
+.contact_table th
+{
+  font-size: 13px;
+  color: red;
+  background: yellow;  
+}
+.contact_table td
+{
+  font-size: 12px;
+  color: black;
+}

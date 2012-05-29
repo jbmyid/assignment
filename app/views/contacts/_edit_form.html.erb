@@ -1,0 +1,47 @@
+<div class="popup_block" id="edit_contact_div" style="display:none;">
+<%= form_for @contact, :url=>{:controller=>"contacts",:action=>"update",:id=>@contact.id},:html=>{:onsubmit=>"return validate_contact_form($(this));"}, :remote=>true do |f|%>
+<table>
+	<tr>
+	  <td><span>Name: </span></td>
+	  <td>
+		<%=f.text_field :name, :class=>"contact_name" %>
+	 	<span class='errors name_error'><%= @contact.errors.blank? ? "" : @contact.errors[:name][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td><span>Email: </span></td>
+	  <td>
+		<%=f.text_field :email, :class=>"contact_email" %>
+		<span class='errors email_error'><%= @contact.errors.blank? ? "" : @contact.errors[:email][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td><span>Short Info: </span></td>
+	  <td>
+		<%=f.text_area :short_info, :class=>"contact_short_info" ,:rows=>"10",:cols=>"50"%>
+		<span class='errors short_info_error'><%= @contact.errors.blank? ? "" : @contact.errors[:short_info][0].to_s %></span>
+	  </td>		
+	</tr>
+	<tr>
+	  <td></td>
+	  <td ><%= f.submit "Update" %></td>	
+	</tr>
+</table>
+  
+<% end %>
+</div>
+
+<script type='text/javascript'>
+$(function() {
+		$( "#edit_contact_div" ).dialog({width:"400px",
+			modal: true,
+			title: "Edit Contact",
+			resizable:false,
+			draggable:false,
+			close: function(){
+				$(this).remove();
+			}
+		});
+		
+	});
+</script>

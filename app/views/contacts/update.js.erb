@@ -1,0 +1,9 @@
+<% if !@contact.errors.blank? %>
+  var form = $("#edit_contact_div form");
+
+   $(".name_error",form).html("<%= @contact.errors[:name][0].to_s %>");
+   $(".email_error",form).html("<%= @contact.errors[:email][0].to_s %>");
+   $(".short_info_error",form).html("<%= @contact.errors[:short_info][0].to_s %>");
+<% else %>
+	window.location = "<%= url_for :action=>:index %>"
+<% end %>
